@@ -2,8 +2,14 @@
 
 namespace Tests;
 
-public class CalculatorTests
+public class CalculatorTests 
 {
+    public Calc constructClass () 
+    {
+        Calc calc = new Calc();
+        return calc;
+    }
+
     [Theory]
     [InlineData (1, 2, 3)]
     public void When_Receiving_Two_Values_Should_Return_Their_Sum(int value1, int valu2, int resultExpected)
@@ -79,9 +85,10 @@ public class CalculatorTests
         Calc calc = new Calc();
 
         calc.Sum(2, 1);
+        calc.Sum(3, 1);
 
         var list = calc.GetHistory();
         Assert.NotEmpty(list);
-        Assert.Equal(3, list.Count);
+        Assert.Equal(2, list.Count);
     }
 }
